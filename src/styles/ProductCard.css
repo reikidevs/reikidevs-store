@@ -1,0 +1,236 @@
+.product-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Style for out of stock products */
+.product-card.out-of-stock {
+  opacity: 0.8;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-content {
+  flex-grow: 1;
+  padding: 1.5rem;
+  position: relative;
+}
+
+.product-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: #0070f3;
+  color: white;
+  font-size: 0.7rem;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+  z-index: 2;
+  box-shadow: 0 2px 5px rgba(0, 112, 243, 0.3);
+}
+
+/* Stock badge styles */
+.stock-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: #4caf50; /* Green for in stock */
+  color: white;
+  font-size: 0.7rem;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+  z-index: 2;
+  box-shadow: 0 2px 5px rgba(76, 175, 80, 0.3);
+}
+
+.stock-badge.out-of-stock {
+  background-color: #f44336; /* Red for out of stock */
+  box-shadow: 0 2px 5px rgba(244, 67, 54, 0.3);
+}
+
+.product-image {
+  height: 150px;
+  overflow: hidden;
+  background-color: #f5f9ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  margin-bottom: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.03);
+}
+
+.product-image img {
+  max-width: 65%;
+  max-height: 65%;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.08);
+}
+
+.product-info {
+  text-align: left;
+}
+
+.product-name {
+  font-size: 1.2rem;
+  margin: 0 0 0.7rem;
+  color: #333;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.product-card:hover .product-name {
+  color: #0070f3;
+}
+
+.product-price {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #0070f3;
+  margin-bottom: 1rem;
+}
+
+.product-features {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 1rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.feature-icon {
+  color: #0070f3;
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+.product-options {
+  margin: 1rem 0;
+}
+
+.product-options label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.period-select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #333;
+  font-size: 0.9rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.period-select:focus {
+  border-color: #0070f3;
+  box-shadow: 0 0 0 2px rgba(0, 112, 243, 0.2);
+}
+
+.period-select option {
+  padding: 10px;
+}
+
+.card-actions {
+  padding: 1.5rem;
+  border-top: 1px solid #f0f0f0;
+  text-align: center;
+}
+
+.buy-button {
+  border: none;
+  padding: 10px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  display: block; /* Ensure it takes full width of its container */
+  width: 100%;
+  text-decoration: none;
+}
+
+.buy-button.primary {
+  background-color: #0070f3;
+  color: white;
+}
+
+.buy-button.disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+.buy-button.primary:hover {
+  background-color: #0058c1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 112, 243, 0.3);
+}
+
+.buy-button.secondary {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.buy-button.secondary:hover {
+  background-color: #e5e5e5;
+}
+
+@media (max-width: 768px) {
+  .product-image {
+    height: 120px; /* Smaller image height on mobile */
+  }
+  
+  .product-name {
+    font-size: 1rem; /* Smaller font on mobile */
+  }
+  
+  .product-price {
+    font-size: 1.2rem; /* Smaller price on mobile */
+  }
+  
+  .card-content {
+    padding: 1rem; /* Less padding on mobile */
+  }
+  
+  .card-actions {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+  
+  .product-features {
+    margin-top: 0.5rem;
+  }
+}

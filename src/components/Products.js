@@ -20,14 +20,14 @@ const Products = () => {
         
         if (process.env.NODE_ENV === 'production' || window.location.hostname !== 'localhost') {
           // Use serverless API endpoint in production or preview environments
-          const response = await axios.get('/api/katalog');
+          const response = await axios.get('/api/katalog-simple');
           productData = response.data.products;
           console.log('Fetched products from serverless function');
         } else {
           // For local development, you can either:
           // 1. Use local proxy server
           try {
-            const response = await axios.get('/api/katalog');
+            const response = await axios.get('/api/katalog-simple');
             productData = response.data.products;
             console.log('Fetched products from local API');
           } catch (localError) {
